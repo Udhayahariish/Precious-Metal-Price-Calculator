@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kuber Eswar Jewellers — manual Gold, Silver and Platinum jewellery price calculator." />
+  <title>Kuber Eswar Jewellers | Jewellery Price Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-glow glow-one"></div>
+  <div class="page-glow glow-two"></div>
+
+  <header class="topbar">
+    <div class="brand-wrap">
+      <div class="brand-symbols" aria-label="Kuber Eswar Jewellers logo">
+        <img class="ke-logo" src="assets/ke-logo-gold.png" alt="KE logo" />
+        <span class="brand-divider"></span>
+        <img class="flower-logo" src="assets/flower-gold.png" alt="Kuber Eswar flower symbol" />
+      </div>
+      <div class="brand-copy">
+        <div class="brand-name">KUBER ESWAR JEWELLERS</div>
+        <div class="brand-sub">A.N. MANGALAM, SALEM · 636 106</div>
+        <div class="brand-tagline">TRADITION <span>•</span> PURITY <span>•</span> DEVOTION</div>
+      </div>
+    </div>
+    <div class="top-actions">
+      <div class="desk-status"><span></span> PRIVATE PRICE DESK</div>
+      <button class="outline-btn" id="settingsBtn">⚙ Rate setup</button>
+      <button class="dark-btn" id="printBtn">Print Quote</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="intro">
+      <div class="intro-copy">
+        <div class="kicker">KUBER ESWAR • JEWELLERY PRICE STUDIO</div>
+        <h1>Price every piece<br><em>with confidence.</em></h1>
+        <p>Enter your shop's current metal price, choose the making method, add GST and get a clean customer-ready total.</p>
+        <div class="intro-pills">
+          <span>Manual metal price</span>
+          <span>Making % or ₹</span>
+          <span>GST included</span>
+        </div>
+      </div>
+      <div class="intro-art">
+        <div class="art-ring"></div>
+        <div class="art-orbit orbit-a"></div>
+        <div class="art-orbit orbit-b"></div>
+        <div class="hero-logo-stack">
+          <img src="assets/ke-logo-gold.png" alt="KE logo" class="hero-ke" />
+          <img src="assets/flower-gold.png" alt="Flower symbol" class="hero-flower" />
+        </div>
+      </div>
+    </section>
+
+    <section class="studio-shell">
+      <div class="studio-head">
+        <div>
+          <div class="section-label">CALCULATOR</div>
+          <h2>Jewellery pricing desk</h2>
+        </div>
+        <div class="formula-tag">Metal value + making + GST</div>
+      </div>
+
+      <nav class="metal-tabs" aria-label="Choose metal">
+        <button class="metal-tab active" data-metal="gold"><span>Au</span> Gold</button>
+        <button class="metal-tab" data-metal="silver"><span>Ag</span> Silver</button>
+        <button class="metal-tab" data-metal="platinum"><span>Pt</span> Platinum</button>
+      </nav>
+
+      <div class="calculator-layout">
+        <section class="calculator-card">
+          <div class="metal-heading">
+            <div class="metal-emblem" id="metalEmblem">Au</div>
+            <div>
+              <div class="small-label" id="calcEyebrow">GOLD</div>
+              <h3 id="calcTitle">Gold price calculator</h3>
+            </div>
+          </div>
+
+          <div class="rate-panel">
+            <div class="field-head">
+              <label for="rate">Metal price</label>
+              <span>Enter manually</span>
+            </div>
+            <div class="big-input-wrap">
+              <span>₹</span>
+              <input id="rate" type="number" min="0" step="0.01" value="14220" inputmode="decimal" />
+              <strong>/ gram</strong>
+            </div>
+            <div class="rate-hint" id="rateHint">For 22K gold, enter your shop's current price per gram.</div>
+          </div>
+
+          <div id="goldPurityArea" class="field-block">
+            <label>Gold purity</label>
+            <div class="choice-row" id="goldPurityButtons">
+              <button data-purity="24">24K</button>
+              <button class="selected" data-purity="22">22K</button>
+              <button data-purity="18">18K</button>
+            </div>
+          </div>
+
+          <div id="silverPurityArea" class="field-block hidden">
+            <label>Silver purity</label>
+            <div class="choice-row" id="silverPurityButtons">
+              <button class="selected" data-purity="999">999</button>
+              <button data-purity="925">925</button>
+            </div>
+          </div>
+
+          <div id="platinumPurityArea" class="field-block hidden">
+            <label>Platinum purity</label>
+            <div class="choice-row" id="platinumPurityButtons">
+              <button class="selected" data-purity="950">950</button>
+              <button data-purity="999">999</button>
+            </div>
+          </div>
+
+          <div class="inputs-grid">
+            <div class="field-block">
+              <label for="weight">Weight <small>(grams)</small></label>
+              <div class="input-wrap"><input id="weight" type="number" min="0" step="0.001" value="10"><span>g</span></div>
+            </div>
+            <div class="field-block">
+              <label for="makingMode">Making method</label>
+              <select id="makingMode">
+                <option value="percent">Making charge (%)</option>
+                <option value="pergram">Making price (₹ / g)</option>
+                <option value="fixed">Making price (fixed ₹)</option>
+              </select>
+            </div>
+            <div class="field-block">
+              <label for="making">Making value</label>
+              <div class="input-wrap"><input id="making" type="number" min="0" step="0.01" value="12"><span id="makingUnit">%</span></div>
+            </div>
+            <div class="field-block">
+              <label for="gst">GST</label>
+              <select id="gst">
+                <option value="3">Include 3%</option>
+                <option value="0">Exclude GST</option>
+                <option value="5">Include 5%</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="calculation-note"><span>i</span><p id="calculationNote">Making charge is calculated as a percentage of the metal value.</p></div>
+
+          <div class="breakdown">
+            <div class="breakdown-row"><span>Metal value</span><strong id="baseValue">₹1,42,200</strong></div>
+            <div class="breakdown-row"><span id="makingLabel">Making charges (12%)</span><strong id="makingValue">₹17,064</strong></div>
+            <div class="breakdown-row"><span>Subtotal</span><strong id="subtotalValue">₹1,59,264</strong></div>
+            <div class="breakdown-row gst-row"><span id="gstLabel">GST (3%)</span><strong id="gstValue">₹4,778</strong></div>
+          </div>
+
+          <div class="total-panel">
+            <div>
+              <span>Total payable</span>
+              <small>Customer price including selected charges</small>
+            </div>
+            <strong id="totalValue">₹1,64,042</strong>
+          </div>
+
+          <div class="action-row">
+            <button class="light-btn" id="resetBtn">Reset</button>
+            <button class="outline-btn" id="copyBtn">Copy calculation</button>
+          </div>
+        </section>
+
+
+      </div>
+    </section>
+
+    <footer>
+      <div><strong>KUBER ESWAR JEWELLERS</strong><span>•</span> A.N. Mangalam, Salem · 636 106</div>
+      <div>TRADITION • PURITY • DEVOTION · Verify rates before billing</div>
+    </footer>
+  </main>
+
+  <div class="modal hidden" id="settingsModal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-panel">
+      <div class="modal-head">
+        <div><div class="section-label">OPTIONAL SHORTCUT</div><h2>Save your usual prices</h2></div>
+        <button id="closeModal">×</button>
+      </div>
+      <p class="modal-help">These are only saved in this browser as convenient starting values. You can still change the price manually every time.</p>
+      <div class="saved-rate-grid">
+        <label>Gold 24K<input id="savedGold24" type="number" min="0"></label>
+        <label>Gold 22K<input id="savedGold22" type="number" min="0"></label>
+        <label>Gold 18K<input id="savedGold18" type="number" min="0"></label>
+        <label>Silver 999<input id="savedSilver999" type="number" min="0"></label>
+        <label>Silver 925<input id="savedSilver925" type="number" min="0"></label>
+        <label>Platinum 950<input id="savedPt950" type="number" min="0"></label>
+        <label>Platinum 999<input id="savedPt999" type="number" min="0"></label>
+      </div>
+      <div class="modal-actions"><button class="light-btn" id="restoreDefaults">Restore samples</button><button class="dark-btn" id="saveRates">Save shortcuts</button></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Saved</div>
+  <script src="script.js"></script>
+</body>
+</html>
